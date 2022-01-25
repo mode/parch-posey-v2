@@ -216,8 +216,31 @@
 }
 
 .iframe{
+
+  display: none;
+}
+
+.iframe.active{
   margin: 2% 0 0 2%;
   padding-right: .5%;
   width: 98%;
   height: 800px;
+  display: block;
 }
+
+
+
+.loginWave  {
+  width: 100% !important;
+  stroke: none; 
+  fill: #A0FFF3;
+  position: absolute;
+  bottom: 0;
+
+} 
+
+.loginWave.one {
+  position: absolute;
+
+}
+

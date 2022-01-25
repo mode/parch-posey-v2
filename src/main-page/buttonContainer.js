@@ -41,7 +41,8 @@ class ButtonContainer extends Component {
       </div>
 
   </div>
-      <EMBED param={this.state.param} report={this.state.activeId}></EMBED>
+      <EMBED param={this.state.param} report={"Overview"} state={this.state.activeId}></EMBED>
+      <EMBED param={this.state.param} report={"All Orders"} state={this.state.activeId}></EMBED>
   </div>
     }
   }
