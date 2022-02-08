@@ -9,18 +9,30 @@ class ButtonContainer extends Component {
 
   state = {
     activeId: 'Overview',
-    param:1001
+    links:{"All Orders":'',"Overview":""}
+
   }
   handleClick(event, id) {
-    console.log(id)
     this.setState({ activeId: event })
+
+  }
+
+  handleCSV = (csvLink,reportName)=>{
+    let link = this.state.links 
+
+    link[reportName] = csvLink
+
+    this.setState({ links:link})
+
   }
 
 
-
-
-    render() {
   
+   render() {
+      
+      console.log(this.state)
+
+      const embedURL = this.props.embedURL;
       return     <div><div className="buttonsContainer">
        
       <div></div>
@@ -36,13 +48,12 @@ class ButtonContainer extends Component {
       })}
         </div> 
       <div className="exportButtons">
-        <CSVEXPORT></CSVEXPORT>
+        <CSVEXPORT link={this.state.links} report={this.state.activeId}></CSVEXPORT>
         <PDFEXPORT></PDFEXPORT>
       </div>
 
   </div>
-      <EMBED param={this.state.param} report={"Overview"} state={this.state.activeId}></EMBED>
-      <EMBED param={this.state.param} report={"All Orders"} state={this.state.activeId}></EMBED>
+      <EMBED key={1} param={this.props.account_id} report={this.state.activeId} state={this.state.activeId} csvLinks = {this.state.csvLinks} links={this.handleCSV}></EMBED>
   </div>
     }
   }

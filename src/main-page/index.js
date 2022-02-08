@@ -9,27 +9,38 @@ class App extends Component {
 
   state = {
     isLoggedIn: false,
-    email: "",
-    user: "",
+    username: "",
     password: "",
+    account_id:"",
     loginMessage: "",
     signupMessage: ""
+      };
+
+    verify = () => {
+      console.log("verify");
+      if (localStorage.token) {
+        console.log("Verified")
+      } else {
+        this.setState({
+          isLoggedIn: false
+        });
+      }
     };
 
     handleLogin = event => {
       event.preventDefault();
       axios
-        .post("https://stark-chamber-26373.herokuapp.com/user/login", {
-        // .post("http://localhost:3001/user/login", {
-          email: this.state.email,
+        .post("http://localhost:3001/login", {
+          username: this.state.username,
           password: this.state.password
         })
         .then(response => {
           // debugger;
-          localStorage.token = response.data.signedJwt;
+          localStorage.token = response.data.token;
           this.setState({
             isLoggedIn: true,
-            user: response.data.user
+            username: response.data.account_name,
+            account_id:response.data.account_id
           });
           this.verify();
         })
@@ -41,39 +52,53 @@ class App extends Component {
     };
       // Handle user logout
     handleLogout = event => {
+      console.log("This")
       this.setState({
-        email: "",
+        username: "",
         password: "",
         isLoggedIn: false
       });
       localStorage.clear();
   };
+
+  handleInput = event => {
+    
+
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+
+
+  };
+
+  
   
     render() {
       let temp;
-      console.log(this.state.isLoggedIn)
+
       if(this.state.isLoggedIn){
         temp=<>
                 <Header
                   isloggedIn = {this.state.isLoggedIn}
-                  email = {this.state.email}
-                  user = {this.state.user}
-                  handleLogin = {this.state.handleLogin}
-                  handleLogout = {this.state.handleLogout}
+                  username = {this.state.username}
+                  handleLogout = {this.handleLogout}
                 ></Header>
-                <ButtonContainer></ButtonContainer>
+                <ButtonContainer
+                  account_id = {this.state.account_id}
+                  
+                ></ButtonContainer>
         </>
       }else{
               temp =<><Header
                 isloggedIn = {this.state.isLoggedIn}
                 email = {this.state.email}
                 user = {this.state.user}
-                handleLogin = {this.state.handleLogin}
-                handleLogout = {this.state.handleLogout}
+                handleLogin = {this.handleLogin}
+                handleInput = {this.handleInput}
+
               ></Header></>
       }
 
-      console.log(temp)
       return(
     <div className="MainContainer">
         {temp}
