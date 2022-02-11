@@ -3,6 +3,9 @@ import Header  from './header';
 import ButtonContainer from './buttonContainer'
 import React, { Component } from "react";
 import axios from "axios";
+import Login from './login';
+
+
 
 
 class App extends Component {
@@ -74,7 +77,7 @@ class App extends Component {
   
   
     render() {
-      let temp;
+    let temp;
 
       if(this.state.isLoggedIn){
         temp=<>
@@ -89,20 +92,22 @@ class App extends Component {
                 ></ButtonContainer>
         </>
       }else{
-              temp =<><Header
+              temp =<><Login
                 isloggedIn = {this.state.isLoggedIn}
                 email = {this.state.email}
                 user = {this.state.user}
                 handleLogin = {this.handleLogin}
                 handleInput = {this.handleInput}
 
-              ></Header></>
+              ></Login></>
       }
 
       return(
     <div className="MainContainer">
         {temp}
      </div>
+
+
       )
     }
 

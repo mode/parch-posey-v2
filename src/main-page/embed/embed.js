@@ -38,7 +38,7 @@ class EMBED extends Component {
       const url = await this.embedURL(this.props.param,this.props.report)
       this.setState({embed:url})
     }
-
+    
     // Typical usage (don't forget to compare props):
     if (this.props.report !== prevProps.report) {
       document.getElementsByClassName('iframe')[0].removeAttribute('src')
@@ -48,8 +48,9 @@ class EMBED extends Component {
 
 
     render() {
-        const state = this.props.state === this.props.report?"active":""
-        return <iframe className={"iframe" +" " + state} src={this.state.embed}></iframe>;
+        const state = this.props.state === this.props.report?"active":"";
+        const height = {"Overview":"1500px","All Orders":"800px"}
+        return <iframe className={"iframe" +" " + state} src={this.state.embed} height={height[this.props.report]}></iframe>;
       }
 }
 

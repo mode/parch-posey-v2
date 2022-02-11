@@ -1,16 +1,7 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .App-header {
@@ -60,14 +51,14 @@
   letter-spacing: 1px;
   color: #FFFFFF;
   letter-spacing: 1px;
-  position: fixed;
+  position: absolute;
   z-index: 12;
 }
 .logOut{
   position: absolute;
   width: 102px;
   height: 67px;
-  left: 95.5%;
+  left:calc(100% - 150px);  
   top: 24px;
   font-family: Source Sans Pro;
   font-style: normal;
@@ -205,6 +196,21 @@
   margin-right: 10px;
 
 }
+
+button a { color: #FFFFFF;;text-decoration: none;
+} 
+
+button a:hover { color: #FFFFFF;;text-decoration: none;
+} 
+.exportButtons button.unactive{
+  background: grey;
+}
+
+.exportButtons button.unactive:hover,button.unactive a:hover{
+  background: grey;
+  cursor: no-drop;
+  color: #FFFFFF;
+}
 .toggleEmbeds button, .exportButtons button{
   height: 50px;
   font-family: Source Sans Pro;
@@ -221,10 +227,9 @@
 }
 
 .iframe.active{
-  margin: 2% 0 0 2%;
+  margin: 2% 0 0 0;
   padding-right: .5%;
   width: 98%;
-  height: 800px;
   display: block;
 }
 

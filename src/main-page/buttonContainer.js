@@ -49,7 +49,8 @@ class ButtonContainer extends Component {
         </div> 
       <div className="exportButtons">
         <CSVEXPORT link={this.state.links} report={this.state.activeId}></CSVEXPORT>
-        <PDFEXPORT></PDFEXPORT>
+        {/* Commented out until logic to create PDF can be added */}
+        {/* <PDFEXPORT></PDFEXPORT> */}
       </div>
 
   </div>
