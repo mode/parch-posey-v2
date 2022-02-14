@@ -374,6 +374,11 @@ border-radius: 20px;
 
 }
 
+.formInput span {
+  color:red;
+  margin-left: 2px;
+}
+
 .formInput button {
   width: 268px;
   height: 40px;

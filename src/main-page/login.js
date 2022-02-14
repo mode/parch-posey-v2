@@ -88,6 +88,7 @@ class Login extends Component {
                         <span className="loginheader two">Customer portal login</span>
                         <br/>
                         <form className="formInput" onSubmit={handleLogin}>
+                            <span> {this.props.loginMessage}</span>
                             <input
                             className="username"
                             name='username'
@@ -98,6 +99,7 @@ class Login extends Component {
                             <input
                             className="password"
                             name="password"
+                            type="password"
                             onChange={handleInput}
                             placeholder='Enter your password...'
                             />

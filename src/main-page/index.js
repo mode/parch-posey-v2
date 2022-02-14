@@ -4,7 +4,13 @@ import ButtonContainer from './buttonContainer'
 import React, { Component } from "react";
 import axios from "axios";
 import Login from './login';
-
+import { render } from "react-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate
+} from "react-router-dom";
 
 
 
@@ -33,7 +39,7 @@ class App extends Component {
     handleLogin = event => {
       event.preventDefault();
       axios
-        .post("http://localhost:3001/login", {
+        .post("https://parch-posey-backend.herokuapp.com/login", {
           username: this.state.username,
           password: this.state.password
         })
@@ -59,7 +65,8 @@ class App extends Component {
       this.setState({
         username: "",
         password: "",
-        isLoggedIn: false
+        isLoggedIn: false,
+        loginMessage: ""
       });
       localStorage.clear();
   };
@@ -77,10 +84,20 @@ class App extends Component {
   
   
     render() {
-    let temp;
+      return(
 
-      if(this.state.isLoggedIn){
-        temp=<>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={this.state.isLoggedIn?<Navigate to="/home"/>:<><Login
+                isloggedIn = {this.state.isLoggedIn}
+                email = {this.state.email}
+                user = {this.state.user}
+                handleLogin = {this.handleLogin}
+                handleInput = {this.handleInput}
+                loginMessage = {this.state.loginMessage}
+
+              ></Login></>} />
+      <Route path="/home" element={this.state.isLoggedIn?<>
                 <Header
                   isloggedIn = {this.state.isLoggedIn}
                   username = {this.state.username}
@@ -90,23 +107,9 @@ class App extends Component {
                   account_id = {this.state.account_id}
                   
                 ></ButtonContainer>
-        </>
-      }else{
-              temp =<><Login
-                isloggedIn = {this.state.isLoggedIn}
-                email = {this.state.email}
-                user = {this.state.user}
-                handleLogin = {this.handleLogin}
-                handleInput = {this.handleInput}
-
-              ></Login></>
-      }
-
-      return(
-    <div className="MainContainer">
-        {temp}
-     </div>
-
+        </>:<Navigate to="/"/>} />
+    </Routes>
+  </BrowserRouter>
 
       )
     }
