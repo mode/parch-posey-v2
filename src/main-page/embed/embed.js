@@ -10,7 +10,7 @@ class EMBED extends Component {
     
   }
   embedURL = (param,reportName)=>
-    axios.post("https://parch-posey-backend.herokuapp.com//mode_embed",{param:param,report:reportName})
+    axios.post("https://parch-posey-backend.herokuapp.com/mode_embed",{param:param,report:reportName})
     .then(response => {
       return response.data
     })
