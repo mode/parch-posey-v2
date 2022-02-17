@@ -1,6 +1,6 @@
-import ppLogo2 from './parchLog2.png'
+import ppLogo2 from './assets/parchLog2.png'
 import React, { Component } from "react";
-import Lock from './icon.png'
+import Lock from './assets/icon.png'
 
 class Login extends Component {
     render(){

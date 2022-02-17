@@ -1,6 +1,6 @@
 import './App.css';
 import Header  from './header';
-import ButtonContainer from './buttonContainer'
+import ButtonContainer from './mainContainer'
 import React, { Component } from "react";
 import axios from "axios";
 import Login from './login';
@@ -15,7 +15,7 @@ import {
 
 
 class App extends Component {
-
+// Default user state before login
   state = {
     isLoggedIn: false,
     username: "",
@@ -24,7 +24,7 @@ class App extends Component {
     loginMessage: "",
     signupMessage: ""
       };
-
+// Verify that there is a localStorage token and the user is auth
     verify = () => {
       console.log("verify");
       if (localStorage.token) {
@@ -35,7 +35,7 @@ class App extends Component {
         });
       }
     };
-
+    // Request user info from backend
     handleLogin = event => {
       event.preventDefault();
       axios
@@ -70,7 +70,7 @@ class App extends Component {
       });
       localStorage.clear();
   };
-
+// Capture values inputted into the signin forms
   handleInput = event => {
     
 
@@ -85,7 +85,8 @@ class App extends Component {
   
     render() {
       return(
-
+    // Router, if user is logged in, they will see main page. 
+    // If not, they will see login page. 
     <BrowserRouter>
     <Routes>
       <Route path="/" element={this.state.isLoggedIn?<Navigate to="/home"/>:<><Login

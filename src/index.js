@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { render } from "react-dom";
 
 import './index.css';
-import App from './main-page';
+import App from './main-page/app';
 import { BrowserRouter} from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';

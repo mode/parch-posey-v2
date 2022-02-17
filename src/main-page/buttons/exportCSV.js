@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 
 class CSVEXPORT extends Component {
 
+  // Component used to generate CSV Export
   componentDidUpdate(prevProps) {
     console.log(prevProps)
+    // Check CSV Link from messageBody Object to ensure it is not empty
+    // If empty button will be grayed out.
+    // Else new link will be added on render of iFrame
     if (this.props.link[this.props.report] !== '') {
 
       let element = document.getElementById('csv');

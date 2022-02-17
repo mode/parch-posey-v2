@@ -2,7 +2,14 @@
 html, body {
   max-width: 100%;
   overflow-x: hidden;
+  font-family: Source Sans Pro !important;
 }
+
+/* 
+*************************
+Logged in Header
+*************************
+*/
 
 .App-header {
   background-color: #282c34;
@@ -28,10 +35,11 @@ html, body {
 }
 .headerLogo {
   margin: 25px 50px 20px;
-  padding: 15px 15px 15px 10px;
+  padding: 10px 10px 10px 10px;
   background-color: #E3FFFB;
-  width: 70px;
-  height: 75px;
+  width: 48px;
+  height: 48px;
+  left: 24px;
   border-radius: 4px;
 }
 
@@ -81,8 +89,6 @@ html, body {
 
 }
 
-
-
 .wave.one {
   position: absolute;
   width: 100%;
@@ -90,8 +96,6 @@ html, body {
   right: -14px;
   top: 27.5px;
   opacity: 0.5;  
-
-
 }
 
 .wave.one::before {
@@ -142,14 +146,12 @@ html, body {
   stroke: none; 
   fill: #A0FFF3;
 }
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+/*
+****************
+Main Container
+**************** 
+ */
 
 
 .buttonsContainer{
@@ -157,6 +159,16 @@ html, body {
   justify-content: space-between;
 }
 
+.buttonsContainer{
+  margin-top: 3%;
+}
+
+
+/*
+****************
+Buttons
+**************** 
+ */
 .toggleEmbeds{
   margin-left: 5%;
 
@@ -175,9 +187,7 @@ html, body {
 
 }
 
-.buttonsContainer{
-  margin-top: 3%;
-}
+
 .toggleEmbeds button{
   width: 192px;
   border: none;
@@ -221,6 +231,12 @@ button a:hover { color: #FFFFFF;;text-decoration: none;
   
 }
 
+/* 
+*******************
+iFrame Embeds
+*******************
+*/
+
 .iframe{
 
   display: none;
@@ -233,6 +249,11 @@ button a:hover { color: #FFFFFF;;text-decoration: none;
   display: block;
 }
 
+/* 
+********************
+Auth Page
+********************
+ */
 
 
 .loginWave  {
@@ -397,7 +418,7 @@ border-radius: 20px;
 }
 
 .password{
-  background-image: url(icon.png)  !important;
+  background-image: url(/src/main-page/assets/icon.png)  !important;
   background-repeat: no-repeat !important;
   background-size: 10px !important;
   padding-left: 30px !important;
@@ -405,7 +426,7 @@ border-radius: 20px;
 }
 
 .username{
-  background-image: url(avatar.png)  !important;
+  background-image: url(/src/main-page/assets/avatar.png)  !important;
   background-repeat: no-repeat !important;
   background-size: 15px !important;
   padding-left: 30px !important;
