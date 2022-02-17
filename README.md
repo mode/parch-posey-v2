@@ -1,4 +1,4 @@
-# Parch-Posey-Customer-Portalv3
+# Parch-Posey-Customer-Portalv4
 
 [Link](https://github.com/mode/parch-posey-backend) to the repo for the backend application that supports this React Application. 
 
@@ -8,7 +8,7 @@
 ![Screen Shot 2022-02-15 at 2 55 39 PM](https://user-images.githubusercontent.com/41496659/154163964-3745e823-684d-4591-8834-1c6d67a34894.png)
 
 
-Welcome to the 3rd version of Parch & Posey's WLE Customer Portal! This version utilizes React, Heroku, Node and Express to showcase WLEs. Here are the reports that embeded within the Application. 
+Welcome to the 4th version of Parch & Posey's WLE Customer Portal! This version utilizes React, Heroku, Node and Express to showcase WLEs. Here are the reports that embeded within the Application. 
 
 _Overview_ - https://app.mode.com/demo/reports/635ba62f4a21 
 
