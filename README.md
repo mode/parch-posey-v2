@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# Parch-Posey-Customer-Portalv3
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Link](https://github.com/mode/parch-posey-backend) to the repo for the backend application that supports this React Application. 
 
-## Available Scripts
+## WELCOME!!
 
-In the project directory, you can run:
 
-### `npm start`
+![Screen Shot 2022-02-15 at 2 55 39 PM](https://user-images.githubusercontent.com/41496659/154163964-3745e823-684d-4591-8834-1c6d67a34894.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Welcome to the 3rd version of Parch & Posey's WLE Customer Portal! This version utilizes React, Heroku, Node and Express to showcase WLEs. Here are the reports that embeded within the Application. 
 
-### `npm test`
+_Overview_ - https://app.mode.com/demo/reports/635ba62f4a21 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+_All Orders_ - https://app.mode.com/demo/reports/cb3fcbd2efeb
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## HEROKU 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Please see this [Guru Card](https://app.getguru.com/card/T4pepjnc/Heroku-) on Heroku. 
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## RUN LOCALLY
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To run the application locally you will have to clone down a copy of this repo and then install the dependencies. Here is a [guide](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) on how to clone down a repo to your local machine.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Once you have the repo cloned down to your local machine, use your package manager to install all the dependencies in the package.json file. This app was built using NPM, so the following example would be how to run the command in NPM. 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+`npm install`
 
-## Learn More
+Once everything is installed, to start the app and run it on a local server please use the following command. 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`npm start`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+That command should pop-up a window with the app running on local host. 
 
-### Code Splitting
+## HOW TO UPDATE LIVE VERSION
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<img width="1674" alt="Screen Shot 2022-02-17 at 9 44 21 AM" src="https://user-images.githubusercontent.com/41496659/154540174-5357597f-fa45-41ee-acbe-529d6fd0765c.png">
 
-### Analyzing the Bundle Size
+Once the app is running locally, you can use your IDE to make changes to the code. Most folks use VS Code (Visual Studio) or Atom. Feel free to use which every IDE you would like.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Before you make a change though, please branch off the "Main". It is good practice to make branches to update applications and it will ensure that the production site is clean. 
 
-### Making a Progressive Web App
+To create a branch in your IDE, open up a terminal. If you IDE doesn't have a terminal feature, that is why you should use VS code. Just kidding, but not really. Open up your terminal and navigate to the path of the application. If you just completed the step above you should already be within it. If not just go to the file where you are storing the local version of the application. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+From your main directory it should look something like the following: 
 
-### Advanced Configuration
+`cd ENTER_NAME_OF_DIRECTORY`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+`cd ENTER_NAME_OF_FILE_HOUSING_APP`
 
-### Deployment
+on my computer it would be the following:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+`cd solutions_examples`
 
-### `npm run build` fails to minify
+`cd parch-posey-react-app`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Now from there we will create a branch so that we can work off that branch: 
+
+First check if there are unstaged changes
+`git status`
+
+Most likely there aren't, if there are just discard them. We will then create the new branch and change over to it. The following command does both of those things at once:
+
+`git checkout -b NAME_OF_BRANCH`
+
+Once in the branch, make all the changes needed. For guidance on what things do and where they are please go to the guide below. Now when all changes are done, commit the changes up to Github. 
+
+`git add .`
+
+`git commit -m"Add a message of what you did"`
+
+`git push`
+
+Now that the branch is updated in Github, we can go into the Github UI (website) to make a Pull Request to merge our branch to the "Main" branch. 
+
+
+
+
+COMPONENTs 
