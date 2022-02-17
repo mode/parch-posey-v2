@@ -74,9 +74,29 @@ Once in the branch, make all the changes needed. For guidance on what things do 
 
 `git push`
 
-Now that the branch is updated in Github, we can go into the Github UI (website) to make a Pull Request to merge our branch to the "Main" branch. 
+Now that the branch is updated in Github, we can go into the Github UI (website) to make a Pull Request to merge our branch to the "Main" branch. In the repo, select the newly created branch. In the image below the new branch is "example"
 
 
+![Screen Shot 2022-02-17 at 10 07 32 AM](https://user-images.githubusercontent.com/41496659/154544042-564cb1b4-2fec-4dca-8c96-b019ba0c1176.png)
+
+
+When you are on the right branch, in the tool bar just above the files, select "Pull requests"
+
+
+![Screen Shot 2022-02-17 at 10 07 52 AM](https://user-images.githubusercontent.com/41496659/154544189-61e6426f-2d43-448e-b310-a2261877a9c0.png)
+
+
+And then click "Create pull request" to merge the branch to the "Main" branch. 
+
+
+![Screen Shot 2022-02-17 at 10 08 12 AM](https://user-images.githubusercontent.com/41496659/154544309-202344be-2f4f-449e-b64d-46eed55756ed.png)
+
+Github will merge the branches so long as there aren't conflicts. If there are any conflicts, it will show you a line by line breakdown where you can correct the conflicts. Now we can merge the request and close the branch. 
+
+![Screen Shot 2022-02-17 at 10 08 28 AM](https://user-images.githubusercontent.com/41496659/154544553-708553b4-63dd-4531-9fd5-f624baccf010.png)
+
+
+And the app should be updated!!! 
 
 
 COMPONENTs 
