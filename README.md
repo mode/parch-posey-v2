@@ -99,4 +99,99 @@ Github will merge the branches so long as there aren't conflicts. If there are a
 And the app should be updated!!! 
 
 
-COMPONENTs 
+## COMPONENTs 
+
+This application is built using React, which is a fun frontend framework to use. React constructs a single page application that contains an ecosystem of elements that are dependant on parent-child relationships and variables called State that can update various components when they change. 
+
+In our Parch and Posey app we use very simple components to render the single page and the iFrames within the signed URLs. For simplicity I will only cover the main-page folder within the src folder. That is where most of the magic happends and where most likely changes will happen. 
+
+### App.js 
+
+The App is a component that houses all of our parent components. In it we have we have most of the user related methods and state variables. 
+
+
+<img width="773" alt="Screen Shot 2022-02-17 at 11 25 45 AM" src="https://user-images.githubusercontent.com/41496659/154555807-858c667a-913d-4ded-9074-aa4fb5cd0201.png">
+
+When a user first goes to the page, all of the values in the user State will be empty by default. Once they use a valid username/password combo, our backend will update these values. Once they are updated, we can access them in all child components of app.js 
+
+#### User Auth Methods
+
+The methods to validate a user also live in the app.js component. These methods get passed down as props to the child components to ensure we are getting the right user information. In this case, we are passing these methods down to the login.js component which is the landing page. 
+
+
+<img width="1094" alt="Screen Shot 2022-02-17 at 11 27 46 AM" src="https://user-images.githubusercontent.com/41496659/154556763-3cb9f890-8133-44bd-91d6-c6a255583616.png">
+
+The handleLogin method will call our backend API with the values the user enters into the username and password fields using axios. If the call succeeds, it will return a JWT token, which is how we know a user is logged into the application, and will set the user state with all the information about the user. 
+
+If it fails, because it could not find a user, it will return a "Incorrect Username/email" message. 
+
+
+<img width="1099" alt="Screen Shot 2022-02-17 at 11 27 53 AM" src="https://user-images.githubusercontent.com/41496659/154557336-cb859e89-ff31-49c5-9a73-5ad76cca6922.png">
+
+
+The handleLogut method does everything in reverse. It will clear the JWT token, and make the user state empty. Once the state is empty, React will send the user to the signin page. 
+
+And the final method is the handleinput method. All it does is record what a user types in the username/password fields and sends it to handleLogin method. So it is a helpful, helper function. 
+
+### app.css 
+
+Is where all the styling for the application is handled. Each section is marked within the file and the class names are pretty clear so that you know what you're updating. 
+
+
+<img width="1161" alt="Screen Shot 2022-02-17 at 11 39 21 AM" src="https://user-images.githubusercontent.com/41496659/154557875-6e8ebe82-b78d-49d6-8bad-cf815a507406.png">
+
+
+### mainContainer.js 
+
+Is the 2nd largest component which houses the iFrames, toggleButtons, and the export buttons. It too will receive variables from the parent, app.js, but it will also send down it's own variables to it's children. 
+
+It has two state variables. The first is `activeId` which identifies which report the user wants to see. It defaults to "Overview". The 2nd is `links`, this variable will record the CSV download link returned by the iFrame to allow users to download CSV data from the reports. 
+
+The mainContainer.js alos has methods that are passed down to children to assist with keeping state updated. The first is `handleClick` which will do as it is named. When a user clicks on the toggleButtons, it will cause a cascading effect throughout the components. 
+
+<img width="1239" alt="Screen Shot 2022-02-17 at 11 45 05 AM" src="https://user-images.githubusercontent.com/41496659/154558936-279de9e5-c532-4792-abbd-312c12a994fc.png">
+
+If we click "All Orders", the components will re-render and change the report to the "All Orders" report. This happens because we change the `activeId` on the click event, when that value is changed it will send the new value downstream which will make a new request to get the signedURL for that report. 
+
+
+<img width="1373" alt="Screen Shot 2022-02-17 at 11 49 11 AM" src="https://user-images.githubusercontent.com/41496659/154559552-499aa919-f80c-49b7-a262-484742cde67d.png">
+
+
+The above is the HTML of how a component will be constructed and how we pass values to children components. Using the values in buttonData.json, which is just a json object of the possible reports, we create a toggleButton for each report using a map method. Map is just a way to iterate through a collection of values. 
+
+As we do this, we are passing down values to the child components as attributes. 
+
+<img width="955" alt="Screen Shot 2022-02-17 at 11 52 32 AM" src="https://user-images.githubusercontent.com/41496659/154560052-1204c52a-3183-4f7d-8279-4c6f5d0e4d00.png">
+
+In the example above we are passing down the `handleClick` method so that we can update the value of the chosen report. We also pass down the current value of `activeId` so that the component can know which to highlight. 
+
+And you are now a sort of React expert!!!
+
+### Buttons Folder 
+
+This folder containers the buttonData.json object that let's us know which repairs we can toggle through. It also contains all of the export button components. 
+
+### Embed Folder 
+
+The embed folder contains the iFrame component that will make a request to our backend to sign a report URL and deliver it back. When the report is returned from the backend, the embed.js component will add it to an iFrame and render it to the page. 
+
+### login.js 
+
+<img width="1670" alt="Screen Shot 2022-02-17 at 11 58 42 AM" src="https://user-images.githubusercontent.com/41496659/154561006-c2720cfe-533c-4ccd-a777-bf3e42274d48.png">
+
+This component is what builds the landing page. It contains all the fancy SVGs that make up the design on the page. Also it will use the `handleLogin` and `handleLogut` methods listed in app.js
+
+### header.js 
+
+<img width="1680" alt="Screen Shot 2022-02-17 at 12 00 55 PM" src="https://user-images.githubusercontent.com/41496659/154561341-1be0fa99-8593-4b22-bb82-98e569ad70eb.png">
+
+
+This component will only render when a user is logged into the application. It contains the "P" logo, the application title with the customer's name and the logout button. 
+
+### assets 
+
+This section contains all the images,jpgs that are used in the app such as the "P" logo and the login icons. 
+
+
+## HAPPY HACKING, PLEASE FEEL FREE TO REACH OUT TO A POST-SALES SOLUTION ENGINEER IF YOU HAVE ANY QUESTIONS
+
